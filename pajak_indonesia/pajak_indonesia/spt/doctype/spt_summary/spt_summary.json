@@ -1,0 +1,308 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "jenis_spt_section",
+        "jenis_spt",
+        "masa_pajak",
+        "tahun_pajak",
+        "pembetulan_ke",
+        "company_section",
+        "company",
+        "npwp",
+        "nama_wajib_pajak",
+        "alamat_wajib_pajak",
+        "klu",
+        "no_telepon",
+        "efaktur_section",
+        "penjualan_section",
+        "jumlah_dpp_penjualan",
+        "jumlah_ppn_penjualan",
+        "jumlah_ppnbm_penjualan",
+        "pembelian_section",
+        "jumlah_dpp_pembelian",
+        "jumlah_ppn_pembelian",
+        "jumlah_ppnbm_pembelian",
+        "ebupot_section",
+        "pph_21_section",
+        "jumlah_penghasilan_bruto_21",
+        "jumlah_pph_21",
+        "pph_23_section",
+        "jumlah_penghasilan_bruto_23",
+        "jumlah_pph_23",
+        "pph_26_section",
+        "jumlah_penghasilan_bruto_26",
+        "jumlah_pph_26",
+        "status_section",
+        "status",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "SPT.YY.MM.####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "jenis_spt_section",
+            "fieldtype": "Section Break",
+            "label": "Jenis SPT"
+        },
+        {
+            "fieldname": "jenis_spt",
+            "fieldtype": "Select",
+            "label": "Jenis SPT",
+            "options": "PPN\nPPh 21\nPPh 23\nPPh 26",
+            "reqd": 1
+        },
+        {
+            "fieldname": "masa_pajak",
+            "fieldtype": "Select",
+            "label": "Masa Pajak",
+            "options": "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tahun_pajak",
+            "fieldtype": "Data",
+            "label": "Tahun Pajak",
+            "reqd": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "pembetulan_ke",
+            "fieldtype": "Int",
+            "label": "Pembetulan Ke",
+            "reqd": 1
+        },
+        {
+            "fieldname": "company_section",
+            "fieldtype": "Section Break",
+            "label": "Company Info"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "company.tax_id",
+            "fieldname": "npwp",
+            "fieldtype": "Data",
+            "label": "NPWP",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "company.company_name",
+            "fieldname": "nama_wajib_pajak",
+            "fieldtype": "Data",
+            "label": "Nama Wajib Pajak",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "company.address",
+            "fieldname": "alamat_wajib_pajak",
+            "fieldtype": "Small Text",
+            "label": "Alamat Wajib Pajak",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "company.klu",
+            "fieldname": "klu",
+            "fieldtype": "Data",
+            "label": "KLU",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "company.phone_no",
+            "fieldname": "no_telepon",
+            "fieldtype": "Data",
+            "label": "No Telepon",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "efaktur_section",
+            "fieldtype": "Section Break",
+            "label": "E-Faktur Summary"
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "penjualan_section",
+            "fieldtype": "Section Break",
+            "label": "Penjualan"
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "jumlah_dpp_penjualan",
+            "fieldtype": "Currency",
+            "label": "Jumlah DPP Penjualan",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "jumlah_ppn_penjualan",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPN Penjualan",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "jumlah_ppnbm_penjualan",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPnBM Penjualan",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "pembelian_section",
+            "fieldtype": "Section Break",
+            "label": "Pembelian"
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "jumlah_dpp_pembelian",
+            "fieldtype": "Currency",
+            "label": "Jumlah DPP Pembelian",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "jumlah_ppn_pembelian",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPN Pembelian",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPN'",
+            "fieldname": "jumlah_ppnbm_pembelian",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPnBM Pembelian",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:['PPh 23', 'PPh 26'].includes(doc.jenis_spt)",
+            "fieldname": "ebupot_section",
+            "fieldtype": "Section Break",
+            "label": "E-Bupot Summary"
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 21'",
+            "fieldname": "pph_21_section",
+            "fieldtype": "Section Break",
+            "label": "PPh 21 Summary"
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 21'",
+            "fieldname": "jumlah_penghasilan_bruto_21",
+            "fieldtype": "Currency",
+            "label": "Jumlah Penghasilan Bruto PPh 21",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 21'",
+            "fieldname": "jumlah_pph_21",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPh 21",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 23'",
+            "fieldname": "pph_23_section",
+            "fieldtype": "Section Break",
+            "label": "PPh 23 Summary"
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 23'",
+            "fieldname": "jumlah_penghasilan_bruto_23",
+            "fieldtype": "Currency",
+            "label": "Jumlah Penghasilan Bruto PPh 23",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 23'",
+            "fieldname": "jumlah_pph_23",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPh 23",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 26'",
+            "fieldname": "pph_26_section",
+            "fieldtype": "Section Break",
+            "label": "PPh 26 Summary"
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 26'",
+            "fieldname": "jumlah_penghasilan_bruto_26",
+            "fieldtype": "Currency",
+            "label": "Jumlah Penghasilan Bruto PPh 26",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_spt=='PPh 26'",
+            "fieldname": "jumlah_pph_26",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPh 26",
+            "read_only": 1
+        },
+        {
+            "fieldname": "status_section",
+            "fieldtype": "Section Break",
+            "label": "Status"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nIn Progress\nSubmitted\nApproved\nReported",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "SPT Summary",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "SPT",
+    "name": "SPT Summary",
+    "name_case": "Title Case",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1,
+            "cancel": 1,
+            "amend": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

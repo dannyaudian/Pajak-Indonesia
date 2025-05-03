@@ -1,0 +1,253 @@
+{
+    "actions": [
+        {
+            "action": "pajak_indonesia.pelaporan.doctype.tax_filing_summary.tax_filing_summary.generate_payment_entry",
+            "group": "Create",
+            "label": "Generate Payment Entry",
+            "description": "Create payment entry for this tax filing",
+            "is_standard": 1,
+            "hidden": 0,
+            "condition": "doc.docstatus === 1 && doc.status_spt === 'Kurang Bayar' && !doc.payment_entry"
+        },
+        {
+            "action": "pajak_indonesia.pelaporan.doctype.tax_filing_summary.tax_filing_summary.generate_adjustment_entry",
+            "group": "Create",
+            "label": "Generate Tax Adjustment",
+            "description": "Create tax adjustment entry for this filing",
+            "is_standard": 1,
+            "hidden": 0,
+            "condition": "doc.docstatus === 1 && doc.status_spt === 'Lebih Bayar' && !doc.adjustment_entry"
+        }
+    ],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "company_section",
+        "company",
+        "posting_date",
+        "filing_section",
+        "jenis_pelaporan",
+        "masa_pajak",
+        "tahun_pajak",
+        "status_section",
+        "status_spt",
+        "nomor_tanda_terima",
+        "tanggal_pelaporan",
+        "documents_section",
+        "source_documents",
+        "payment_section",
+        "payment_documents",
+        "bukti_section",
+        "attachments",
+        "amended_from",
+        "payment_entry",
+        "payment_status",
+        "payment_date",
+        "adjustment_entry",
+        "adjustment_status",
+        "adjustment_date"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "TAX-FILE.YY.MM.####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "company_section",
+            "fieldtype": "Section Break",
+            "label": "Company Info"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fieldname": "posting_date",
+            "fieldtype": "Date",
+            "label": "Posting Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "filing_section",
+            "fieldtype": "Section Break",
+            "label": "Filing Details"
+        },
+        {
+            "fieldname": "jenis_pelaporan",
+            "fieldtype": "Select",
+            "label": "Jenis Pelaporan",
+            "options": "SPT Masa PPN\nSPT Masa PPh 21\nSPT Masa PPh 23\nSPT Masa PPh 26\nSPT Masa PPh 4(2)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "masa_pajak",
+            "fieldtype": "Select",
+            "label": "Masa Pajak",
+            "options": "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tahun_pajak",
+            "fieldtype": "Data",
+            "label": "Tahun Pajak",
+            "reqd": 1
+        },
+        {
+            "fieldname": "status_section",
+            "fieldtype": "Section Break",
+            "label": "Filing Status"
+        },
+        {
+            "fieldname": "status_spt",
+            "fieldtype": "Select",
+            "label": "Status SPT",
+            "options": "Nihil\nKurang Bayar\nLebih Bayar",
+            "reqd": 1
+        },
+        {
+            "fieldname": "nomor_tanda_terima",
+            "fieldtype": "Data",
+            "label": "Nomor Tanda Terima",
+            "mandatory_depends_on": "eval:doc.docstatus==1"
+        },
+        {
+            "fieldname": "tanggal_pelaporan",
+            "fieldtype": "Date",
+            "label": "Tanggal Pelaporan",
+            "mandatory_depends_on": "eval:doc.docstatus==1"
+        },
+        {
+            "fieldname": "documents_section",
+            "fieldtype": "Section Break",
+            "label": "Source Documents"
+        },
+        {
+            "fieldname": "source_documents",
+            "fieldtype": "Table",
+            "label": "Source Documents",
+            "options": "Tax Filing Source Document",
+            "reqd": 1
+        },
+        {
+            "fieldname": "payment_section",
+            "fieldtype": "Section Break",
+            "label": "Payment Documents"
+        },
+        {
+            "fieldname": "payment_documents",
+            "fieldtype": "Table",
+            "label": "Payment Documents",
+            "options": "Tax Filing Payment Document"
+        },
+        {
+            "fieldname": "bukti_section",
+            "fieldtype": "Section Break",
+            "label": "Supporting Documents"
+        },
+        {
+            "fieldname": "attachments",
+            "fieldtype": "Table",
+            "label": "Attachments",
+            "options": "Tax Filing Attachment"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Tax Filing Summary",
+            "print_hide": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "payment_entry",
+            "fieldtype": "Link",
+            "label": "Payment Entry",
+            "options": "Payment Entry",
+            "read_only": 1
+        },
+        {
+            "fieldname": "payment_status",
+            "fieldtype": "Select",
+            "label": "Payment Status",
+            "options": "Belum Dibayar\nSudah Dibayar",
+            "default": "Belum Dibayar",
+            "read_only": 1
+        },
+        {
+            "fieldname": "payment_date",
+            "fieldtype": "Date",
+            "label": "Payment Date",
+            "read_only": 1
+        },
+        {
+            "fieldname": "adjustment_entry",
+            "fieldtype": "Link",
+            "label": "Adjustment Entry",
+            "options": "Tax Adjustment Entry",
+            "read_only": 1
+        },
+        {
+            "fieldname": "adjustment_status",
+            "fieldtype": "Select",
+            "label": "Adjustment Status",
+            "options": "\nKompensasi\nRestitusi",
+            "read_only": 1
+        },
+        {
+            "fieldname": "adjustment_date",
+            "fieldtype": "Date",
+            "label": "Adjustment Date",
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Pelaporan",
+    "name": "Tax Filing Summary",
+    "name_case": "Title Case",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1,
+            "cancel": 1,
+            "amend": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Tax Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

@@ -1,0 +1,239 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "jenis_pajak_section",
+        "jenis_pajak",
+        "jenis_daftar",
+        "masa_pajak",
+        "tahun_pajak",
+        "tandatangan_date",
+        "wajib_pajak_section",
+        "npwp_pemotong",
+        "nama_pemotong",
+        "alamat_pemotong",
+        "terpotong_section",
+        "npwp_terpotong",
+        "nama_terpotong", 
+        "alamat_terpotong",
+        "tin",
+        "negara_domisili",
+        "fasilitas_section",
+        "no_fasilitas",
+        "tarif_fasilitas",
+        "bukti_potong_reff",
+        "amounts_section",
+        "penghasilan_bruto",
+        "tarif",
+        "pph_dipotong",
+        "items",
+        "status",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "BP.YY.MM.####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "jenis_pajak_section",
+            "fieldtype": "Section Break",
+            "label": "Jenis Pajak"
+        },
+        {
+            "fieldname": "jenis_pajak",
+            "fieldtype": "Select",
+            "label": "Jenis Pajak",
+            "options": "23\n26",
+            "reqd": 1
+        },
+        {
+            "fieldname": "jenis_daftar",
+            "fieldtype": "Select",
+            "label": "Jenis Daftar",
+            "options": "0 - Normal\n1 - Pembetulan",
+            "reqd": 1
+        },
+        {
+            "fieldname": "masa_pajak",
+            "fieldtype": "Select",
+            "label": "Masa Pajak",
+            "options": "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tahun_pajak",
+            "fieldtype": "Data",
+            "label": "Tahun Pajak",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tandatangan_date",
+            "fieldtype": "Date",
+            "label": "Tanggal Tanda Tangan",
+            "reqd": 1
+        },
+        {
+            "fieldname": "wajib_pajak_section",
+            "fieldtype": "Section Break",
+            "label": "Wajib Pajak Pemotong"
+        },
+        {
+            "fieldname": "npwp_pemotong",
+            "fieldtype": "Data",
+            "label": "NPWP Pemotong",
+            "reqd": 1
+        },
+        {
+            "fieldname": "nama_pemotong",
+            "fieldtype": "Data",
+            "label": "Nama Pemotong",
+            "reqd": 1
+        },
+        {
+            "fieldname": "alamat_pemotong",
+            "fieldtype": "Small Text",
+            "label": "Alamat Pemotong",
+            "reqd": 1
+        },
+        {
+            "fieldname": "terpotong_section",
+            "fieldtype": "Section Break",
+            "label": "Wajib Pajak Terpotong"
+        },
+        {
+            "fieldname": "npwp_terpotong",
+            "fieldtype": "Data",
+            "label": "NPWP Terpotong",
+            "reqd": 1
+        },
+        {
+            "fieldname": "nama_terpotong",
+            "fieldtype": "Data",
+            "label": "Nama Terpotong",
+            "reqd": 1
+        },
+        {
+            "fieldname": "alamat_terpotong",
+            "fieldtype": "Small Text",
+            "label": "Alamat Terpotong",
+            "reqd": 1
+        },
+        {
+            "depends_on": "eval:doc.jenis_pajak=='26'",
+            "fieldname": "tin",
+            "fieldtype": "Data",
+            "label": "TIN"
+        },
+        {
+            "depends_on": "eval:doc.jenis_pajak=='26'",
+            "fieldname": "negara_domisili",
+            "fieldtype": "Link",
+            "label": "Negara Domisili",
+            "options": "Country"
+        },
+        {
+            "fieldname": "fasilitas_section",
+            "fieldtype": "Section Break",
+            "label": "Fasilitas Pajak"
+        },
+        {
+            "fieldname": "no_fasilitas",
+            "fieldtype": "Data",
+            "label": "Nomor Fasilitas"
+        },
+        {
+            "fieldname": "tarif_fasilitas",
+            "fieldtype": "Percent",
+            "label": "Tarif Fasilitas"
+        },
+        {
+            "depends_on": "eval:doc.jenis_daftar=='1 - Pembetulan'",
+            "fieldname": "bukti_potong_reff",
+            "fieldtype": "Data",
+            "label": "No Bukti Potong Reference"
+        },
+        {
+            "fieldname": "amounts_section",
+            "fieldtype": "Section Break",
+            "label": "Jumlah"
+        },
+        {
+            "fieldname": "penghasilan_bruto",
+            "fieldtype": "Currency",
+            "label": "Penghasilan Bruto",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tarif",
+            "fieldtype": "Percent",
+            "label": "Tarif",
+            "reqd": 1
+        },
+        {
+            "fieldname": "pph_dipotong",
+            "fieldtype": "Currency",
+            "label": "PPh Dipotong",
+            "read_only": 1
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Items",
+            "options": "Ebupot Document Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nSubmitted\nApproved\nUploaded",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Ebupot Document",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "E-Bupot",
+    "name": "Ebupot Document",
+    "name_case": "Title Case",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1,
+            "cancel": 1,
+            "amend": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

@@ -1,0 +1,66 @@
+{
+    "actions": [],
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "payment_document",
+        "id_billing",
+        "ntpn",
+        "payment_date",
+        "amount"
+    ],
+    "fields": [
+        {
+            "fieldname": "payment_document",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Payment Document",
+            "options": "Penyelesaian Pajak",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "payment_document.id_billing",
+            "fieldname": "id_billing",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "ID Billing",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "payment_document.ntpn",
+            "fieldname": "ntpn",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "NTPN",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "payment_document.posting_date",
+            "fieldname": "payment_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "Payment Date",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "payment_document.tax_amount",
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Amount",
+            "read_only": 1
+        }
+    ],
+    "istable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Pelaporan",
+    "name": "Tax Filing Payment Document",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC"
+}

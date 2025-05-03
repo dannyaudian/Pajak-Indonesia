@@ -1,0 +1,91 @@
+{
+    "doctype": "Workflow",
+    "document_type": "Penyelesaian Pajak",
+    "is_active": 1,
+    "name": "Finance To Tax V1",
+    "override_status": 0,
+    "send_email_alert": 1,
+    "workflow_name": "Finance To Tax V1",
+    "states": [
+        {
+            "doc_status": 0,
+            "state": "Draft",
+            "allow_edit": "Accounts Manager",
+            "is_optional_state": 0
+        },
+        {
+            "doc_status": 0,
+            "state": "Pending Tax Review",
+            "allow_edit": "Tax Manager",
+            "is_optional_state": 0
+        },
+        {
+            "doc_status": 0,
+            "state": "Tax Approved",
+            "allow_edit": "Tax Manager",
+            "is_optional_state": 0
+        },
+        {
+            "doc_status": 0,
+            "state": "Pending Payment",
+            "allow_edit": "Accounts Manager",
+            "is_optional_state": 0
+        },
+        {
+            "doc_status": 1,
+            "state": "Payment Completed",
+            "allow_edit": "Accounts Manager",
+            "is_optional_state": 0
+        },
+        {
+            "doc_status": 2,
+            "state": "Cancelled",
+            "allow_edit": "Accounts Manager",
+            "is_optional_state": 0
+        }
+    ],
+    "transitions": [
+        {
+            "state": "Draft",
+            "action": "Submit for Tax Review",
+            "next_state": "Pending Tax Review",
+            "allowed": "Accounts Manager",
+            "allow_self_approval": 1
+        },
+        {
+            "state": "Pending Tax Review",
+            "action": "Approve",
+            "next_state": "Tax Approved",
+            "allowed": "Tax Manager",
+            "allow_self_approval": 1
+        },
+        {
+            "state": "Pending Tax Review",
+            "action": "Reject",
+            "next_state": "Draft",
+            "allowed": "Tax Manager",
+            "allow_self_approval": 1
+        },
+        {
+            "state": "Tax Approved",
+            "action": "Process Payment",
+            "next_state": "Pending Payment",
+            "allowed": "Accounts Manager",
+            "allow_self_approval": 1
+        },
+        {
+            "state": "Pending Payment",
+            "action": "Complete Payment",
+            "next_state": "Payment Completed",
+            "allowed": "Accounts Manager",
+            "allow_self_approval": 1
+        },
+        {
+            "state": "Draft",
+            "action": "Cancel",
+            "next_state": "Cancelled",
+            "allowed": "Accounts Manager",
+            "allow_self_approval": 1
+        }
+    ]
+}

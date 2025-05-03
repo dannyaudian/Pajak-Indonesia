@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include pajak_indonesia *.css
+recursive-include pajak_indonesia *.csv
+recursive-include pajak_indonesia *.html
+recursive-include pajak_indonesia *.ico
+recursive-include pajak_indonesia *.js
+recursive-include pajak_indonesia *.json
+recursive-include pajak_indonesia *.md
+recursive-include pajak_indonesia *.png
+recursive-include pajak_indonesia *.py
+recursive-include pajak_indonesia *.svg
+recursive-include pajak_indonesia *.txt
+recursive-exclude pajak_indonesia *.pyc

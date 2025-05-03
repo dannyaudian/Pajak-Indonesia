@@ -1,0 +1,44 @@
+{
+    "creation": "2024-04-23 00:00:00.000000",
+    "docstatus": 0,
+    "doctype": "Dashboard",
+    "idx": 0,
+    "is_default": 0,
+    "is_standard": 1,
+    "modified": "2024-04-23 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Pelaporan",
+    "name": "Pajak Indonesia",
+    "owner": "Administrator",
+    "charts": [
+        {
+            "chart": "PPN Comparison",
+            "width": "Full"
+        },
+        {
+            "chart": "Filing Status",
+            "width": "Half"
+        },
+        {
+            "chart": "Monthly Tax Amounts",
+            "width": "Half"
+        }
+    ],
+    "cards": [
+        {
+            "card": "PPN YTD"
+        },
+        {
+            "card": "PPh 21 YTD"
+        },
+        {
+            "card": "PPh 23 YTD"
+        },
+        {
+            "card": "E-Faktur Count"
+        },
+        {
+            "card": "E-Bupot Count"
+        }
+    ]
+}

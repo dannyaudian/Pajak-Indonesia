@@ -1,0 +1,272 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "adjustment_info_section",
+        "company",
+        "posting_date",
+        "jenis_pajak",
+        "jenis_penyesuaian",
+        "adjustment_type",
+        "reason",
+        "period_section",
+        "masa_pajak",
+        "tahun_pajak",
+        "document_section",
+        "reference_doctype",
+        "reference_name",
+        "original_document_section",
+        "original_tax_base",
+        "original_tax_amount",
+        "adjustment_section",
+        "adjustment_tax_base",
+        "adjustment_tax_amount",
+        "final_section",
+        "final_tax_base",
+        "final_tax_amount",
+        "difference_amount",
+        "gl_entries_section",
+        "adjustment_account",
+        "tax_account",
+        "remarks",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "TAX-ADJ.YY.MM.####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "adjustment_info_section",
+            "fieldtype": "Section Break",
+            "label": "Adjustment Info"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fieldname": "posting_date",
+            "fieldtype": "Date",
+            "label": "Posting Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "jenis_pajak",
+            "fieldtype": "Select",
+            "label": "Jenis Pajak",
+            "options": "PPN\nPPh 21\nPPh 23\nPPh 26\nPPh 4(2)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "jenis_penyesuaian",
+            "fieldtype": "Select",
+            "label": "Jenis Penyesuaian",
+            "options": "Pembetulan SPT\nKoreksi Faktur\nKoreksi Perhitungan\nLainnya",
+            "reqd": 1
+        },
+        {
+            "fieldname": "adjustment_type",
+            "fieldtype": "Select",
+            "label": "Adjustment Type",
+            "options": "Addition\nReduction",
+            "reqd": 1
+        },
+        {
+            "fieldname": "reason",
+            "fieldtype": "Small Text",
+            "label": "Reason for Adjustment",
+            "reqd": 1
+        },
+        {
+            "fieldname": "period_section",
+            "fieldtype": "Section Break",
+            "label": "Tax Period"
+        },
+        {
+            "fieldname": "masa_pajak",
+            "fieldtype": "Select",
+            "label": "Masa Pajak",
+            "options": "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tahun_pajak",
+            "fieldtype": "Data",
+            "label": "Tahun Pajak",
+            "reqd": 1
+        },
+        {
+            "fieldname": "document_section",
+            "fieldtype": "Section Break",
+            "label": "Reference Document"
+        },
+        {
+            "fieldname": "reference_doctype",
+            "fieldtype": "Select",
+            "label": "Reference DocType",
+            "options": "\nSPT Summary\nEfaktur Document\nEbupot Document\nSalary Slip\nPenyelesaian Pajak",
+            "reqd": 1
+        },
+        {
+            "fieldname": "reference_name",
+            "fieldtype": "Dynamic Link",
+            "label": "Reference Name",
+            "options": "reference_doctype",
+            "reqd": 1
+        },
+        {
+            "fieldname": "original_document_section",
+            "fieldtype": "Section Break",
+            "label": "Original Values"
+        },
+        {
+            "fieldname": "original_tax_base",
+            "fieldtype": "Currency",
+            "label": "Original Tax Base",
+            "read_only": 1
+        },
+        {
+            "fieldname": "original_tax_amount",
+            "fieldtype": "Currency",
+            "label": "Original Tax Amount",
+            "read_only": 1
+        },
+        {
+            "fieldname": "adjustment_section",
+            "fieldtype": "Section Break",
+            "label": "Adjustment Values"
+        },
+        {
+            "fieldname": "adjustment_tax_base",
+            "fieldtype": "Currency",
+            "label": "Adjustment Tax Base",
+            "reqd": 1
+        },
+        {
+            "fieldname": "adjustment_tax_amount",
+            "fieldtype": "Currency",
+            "label": "Adjustment Tax Amount",
+            "reqd": 1
+        },
+        {
+            "fieldname": "final_section",
+            "fieldtype": "Section Break",
+            "label": "Final Values"
+        },
+        {
+            "fieldname": "final_tax_base",
+            "fieldtype": "Currency",
+            "label": "Final Tax Base",
+            "read_only": 1
+        },
+        {
+            "fieldname": "final_tax_amount",
+            "fieldtype": "Currency",
+            "label": "Final Tax Amount",
+            "read_only": 1
+        },
+        {
+            "fieldname": "difference_amount",
+            "fieldtype": "Currency",
+            "label": "Difference Amount",
+            "read_only": 1
+        },
+        {
+            "fieldname": "gl_entries_section",
+            "fieldtype": "Section Break",
+            "label": "GL Entry Details"
+        },
+        {
+            "fieldname": "adjustment_account",
+            "fieldtype": "Link",
+            "label": "Adjustment Account",
+            "options": "Account",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tax_account",
+            "fieldtype": "Link",
+            "label": "Tax Account",
+            "options": "Account",
+            "reqd": 1
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Tax Adjustment Entry",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Penyelesaian",
+    "name": "Tax Adjustment Entry",
+    "name_case": "Title Case",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1,
+            "cancel": 1,
+            "amend": 1
+        },
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Accounts Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Tax Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

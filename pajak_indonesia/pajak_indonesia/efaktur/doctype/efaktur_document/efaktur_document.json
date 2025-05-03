@@ -1,0 +1,231 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "kode_jenis_transaksi",
+        "fg_pengganti",
+        "nomor_faktur",
+        "referensi_faktur",
+        "masa_pajak",
+        "tahun_pajak",
+        "tanggal_faktur",
+        "npwp",
+        "nama",
+        "alamat_lengkap",
+        "jumlah_dpp",
+        "jumlah_ppn",
+        "jumlah_ppnbm",
+        "id_keterangan_tambahan",
+        "fg_uang_muka",
+        "uang_muka_dpp",
+        "uang_muka_ppn",
+        "uang_muka_ppnbm",
+        "referensi_nota_retur",
+        "referensi_nota_retur_ppnbm",
+        "referensi",
+        "status",
+        "item_section",
+        "items",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "EF.YY.MM.####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "kode_jenis_transaksi",
+            "fieldtype": "Select",
+            "label": "Kode Jenis Transaksi",
+            "options": "01\n02\n03\n04\n05\n06\n07\n08\n09",
+            "reqd": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "fg_pengganti",
+            "fieldtype": "Select",
+            "label": "Faktur Pengganti",
+            "options": "0\n1",
+            "reqd": 1
+        },
+        {
+            "fieldname": "nomor_faktur",
+            "fieldtype": "Data",
+            "label": "Nomor Faktur",
+            "reqd": 1
+        },
+        {
+            "fieldname": "referensi_faktur",
+            "fieldtype": "Data",
+            "label": "Referensi Faktur",
+            "depends_on": "eval:doc.fg_pengganti=='1'"
+        },
+        {
+            "fieldname": "masa_pajak",
+            "fieldtype": "Select",
+            "label": "Masa Pajak",
+            "options": "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tahun_pajak",
+            "fieldtype": "Data",
+            "label": "Tahun Pajak",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tanggal_faktur",
+            "fieldtype": "Date",
+            "label": "Tanggal Faktur",
+            "reqd": 1
+        },
+        {
+            "fieldname": "npwp",
+            "fieldtype": "Data",
+            "label": "NPWP",
+            "reqd": 1
+        },
+        {
+            "fieldname": "nama",
+            "fieldtype": "Data",
+            "label": "Nama",
+            "reqd": 1
+        },
+        {
+            "fieldname": "alamat_lengkap",
+            "fieldtype": "Small Text",
+            "label": "Alamat Lengkap",
+            "reqd": 1
+        },
+        {
+            "fieldname": "jumlah_dpp",
+            "fieldtype": "Currency",
+            "label": "Jumlah DPP",
+            "reqd": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "jumlah_ppn",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPN",
+            "reqd": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "jumlah_ppnbm",
+            "fieldtype": "Currency",
+            "label": "Jumlah PPnBM",
+            "read_only": 1
+        },
+        {
+            "fieldname": "id_keterangan_tambahan",
+            "fieldtype": "Data",
+            "label": "ID Keterangan Tambahan"
+        },
+        {
+            "default": "0",
+            "fieldname": "fg_uang_muka",
+            "fieldtype": "Select",
+            "label": "Uang Muka",
+            "options": "0\n1",
+            "reqd": 1
+        },
+        {
+            "depends_on": "eval:doc.fg_uang_muka=='1'",
+            "fieldname": "uang_muka_dpp",
+            "fieldtype": "Currency",
+            "label": "Uang Muka DPP"
+        },
+        {
+            "depends_on": "eval:doc.fg_uang_muka=='1'",
+            "fieldname": "uang_muka_ppn",
+            "fieldtype": "Currency",
+            "label": "Uang Muka PPN"
+        },
+        {
+            "depends_on": "eval:doc.fg_uang_muka=='1'",
+            "fieldname": "uang_muka_ppnbm",
+            "fieldtype": "Currency",
+            "label": "Uang Muka PPnBM"
+        },
+        {
+            "fieldname": "referensi_nota_retur",
+            "fieldtype": "Data",
+            "label": "Referensi Nota Retur"
+        },
+        {
+            "fieldname": "referensi_nota_retur_ppnbm",
+            "fieldtype": "Data",
+            "label": "Referensi Nota Retur PPnBM"
+        },
+        {
+            "fieldname": "referensi",
+            "fieldtype": "Data",
+            "label": "Referensi"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "Status",
+            "options": "Draft\nSubmitted\nApproved\nUploaded",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "item_section",
+            "fieldtype": "Section Break",
+            "label": "Items"
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Items",
+            "options": "Efaktur Document Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Efaktur Document",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "E-Faktur",
+    "name": "Efaktur Document",
+    "name_case": "Title Case",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1,
+            "cancel": 1,
+            "amend": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

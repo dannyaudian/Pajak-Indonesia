@@ -1,0 +1,88 @@
+{
+    "actions": [],
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "nama_barang",
+        "harga_satuan",
+        "jumlah_barang",
+        "harga_total",
+        "diskon",
+        "dpp",
+        "ppn",
+        "tarif_ppnbm",
+        "ppnbm"
+    ],
+    "fields": [
+        {
+            "fieldname": "nama_barang",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Nama Barang",
+            "reqd": 1
+        },
+        {
+            "fieldname": "harga_satuan",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Harga Satuan",
+            "reqd": 1
+        },
+        {
+            "fieldname": "jumlah_barang",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Jumlah Barang",
+            "reqd": 1
+        },
+        {
+            "fieldname": "harga_total",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Harga Total",
+            "read_only": 1
+        },
+        {
+            "fieldname": "diskon",
+            "fieldtype": "Currency",
+            "label": "Diskon"
+        },
+        {
+            "fieldname": "dpp",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "DPP",
+            "read_only": 1
+        },
+        {
+            "fieldname": "ppn",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "PPN",
+            "read_only": 1
+        },
+        {
+            "fieldname": "tarif_ppnbm",
+            "fieldtype": "Percent",
+            "label": "Tarif PPnBM"
+        },
+        {
+            "fieldname": "ppnbm",
+            "fieldtype": "Currency",
+            "label": "PPnBM",
+            "read_only": 1
+        }
+    ],
+    "istable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "E-Faktur",
+    "name": "Efaktur Document Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC"
+}

@@ -1,0 +1,252 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "company_section",
+        "company",
+        "posting_date",
+        "due_date",
+        "tax_period_section",
+        "jenis_pajak",
+        "masa_pajak",
+        "tahun_pajak",
+        "no_bukti_potong",
+        "reference_section",
+        "reference_type",
+        "reference_name",
+        "tax_base_section",
+        "tax_base_amount",
+        "tax_rate",
+        "tax_amount",
+        "payment_section",
+        "payment_account",
+        "bank_account",
+        "payment_due_date",
+        "billing_section",
+        "id_billing",
+        "ntpn",
+        "workflow_state",
+        "amended_from"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "TAX-SET.YY.MM.####",
+            "reqd": 1
+        },
+        {
+            "fieldname": "company_section",
+            "fieldtype": "Section Break",
+            "label": "Company Info"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "fieldname": "posting_date",
+            "fieldtype": "Date",
+            "label": "Posting Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "due_date",
+            "fieldtype": "Date",
+            "label": "Due Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tax_period_section",
+            "fieldtype": "Section Break",
+            "label": "Tax Period"
+        },
+        {
+            "fieldname": "jenis_pajak",
+            "fieldtype": "Select",
+            "label": "Jenis Pajak",
+            "options": "PPN\nPPh 21\nPPh 23\nPPh 26\nPPh 4(2)",
+            "reqd": 1
+        },
+        {
+            "fieldname": "masa_pajak",
+            "fieldtype": "Select",
+            "label": "Masa Pajak",
+            "options": "01\n02\n03\n04\n05\n06\n07\n08\n09\n10\n11\n12",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tahun_pajak",
+            "fieldtype": "Data",
+            "label": "Tahun Pajak",
+            "reqd": 1
+        },
+        {
+            "fieldname": "no_bukti_potong",
+            "fieldtype": "Data",
+            "label": "No Bukti Potong",
+            "depends_on": "eval:['PPh 21', 'PPh 23', 'PPh 26', 'PPh 4(2)'].includes(doc.jenis_pajak)"
+        },
+        {
+            "fieldname": "reference_section",
+            "fieldtype": "Section Break",
+            "label": "Reference Document"
+        },
+        {
+            "fieldname": "reference_type",
+            "fieldtype": "Select",
+            "label": "Reference Type",
+            "options": "\nSPT Summary\nEfaktur Document\nEbupot Document\nSalary Slip",
+            "reqd": 1
+        },
+        {
+            "fieldname": "reference_name",
+            "fieldtype": "Dynamic Link",
+            "label": "Reference Name",
+            "options": "reference_type",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tax_base_section",
+            "fieldtype": "Section Break",
+            "label": "Tax Base"
+        },
+        {
+            "fieldname": "tax_base_amount",
+            "fieldtype": "Currency",
+            "label": "Tax Base Amount",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tax_rate",
+            "fieldtype": "Percent",
+            "label": "Tax Rate",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tax_amount",
+            "fieldtype": "Currency",
+            "label": "Tax Amount",
+            "reqd": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "payment_section",
+            "fieldtype": "Section Break",
+            "label": "Payment Details"
+        },
+        {
+            "fieldname": "payment_account",
+            "fieldtype": "Link",
+            "label": "Payment Account",
+            "options": "Account",
+            "reqd": 1
+        },
+        {
+            "fieldname": "bank_account",
+            "fieldtype": "Link",
+            "label": "Bank Account",
+            "options": "Account",
+            "reqd": 1
+        },
+        {
+            "fieldname": "payment_due_date",
+            "fieldtype": "Date",
+            "label": "Payment Due Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "billing_section",
+            "fieldtype": "Section Break",
+            "label": "Tax Payment Info"
+        },
+        {
+            "fieldname": "id_billing",
+            "fieldtype": "Data",
+            "label": "ID Billing",
+            "length": 15
+        },
+        {
+            "fieldname": "ntpn",
+            "fieldtype": "Data",
+            "label": "NTPN",
+            "length": 16
+        },
+        {
+            "fieldname": "workflow_state",
+            "fieldtype": "Link",
+            "label": "Workflow State",
+            "options": "Workflow State",
+            "read_only": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Penyelesaian Pajak",
+            "print_hide": 1,
+            "read_only": 1
+        }
+    ],
+    "is_submittable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Penyelesaian",
+    "name": "Penyelesaian Pajak",
+    "name_case": "Title Case",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1,
+            "cancel": 1,
+            "amend": 1
+        },
+        {
+            "create": 1,
+            "delete": 0,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Accounts Manager",
+            "share": 1,
+            "write": 1,
+            "submit": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Tax Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}

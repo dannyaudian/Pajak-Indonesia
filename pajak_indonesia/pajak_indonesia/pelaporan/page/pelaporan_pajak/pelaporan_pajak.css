@@ -1,0 +1,62 @@
+.summary-section,
+.details-section {
+    margin-bottom: 20px;
+}
+
+.section-header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.summary-cards .card {
+    height: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.summary-cards .card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.card-subtitle {
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.card-title {
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.text-success {
+    color: var(--text-success);
+}
+
+.text-danger {
+    color: var(--text-danger);
+}
+
+.details-table {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.padding-lg {
+    padding: 30px;
+}
+
+.btn-actions {
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.btn-actions:hover {
+    background-color: var(--control-bg);
+}

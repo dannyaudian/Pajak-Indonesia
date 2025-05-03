@@ -1,0 +1,194 @@
+{
+    "doctype": "Workspace",
+    "extends": "Accounting",
+    "extends_another_page": 1,
+    "hide_custom": 0,
+    "icon": "tax",
+    "is_default": 0,
+    "is_hidden": 0,
+    "label": "Pajak Indonesia",
+    "content": "{\"type\":\"workspace\",\"sequence_id\":21,\"parent_page\":\"Accounting\",\"label\":\"Pajak Indonesia\",\"icon\":\"tax\",\"extends\":\"Accounting\",\"extends_another_page\":1,\"cards\":[{\"type\":\"Card Break\",\"label\":\"Transaksi\",\"icon\":\"accounting\",\"hide_title\":false,\"links\":[{\"type\":\"Link\",\"label\":\"Efaktur Document\",\"link_type\":\"DocType\",\"link_to\":\"Efaktur Document\"},{\"type\":\"Link\",\"label\":\"Ebupot Document\",\"link_type\":\"DocType\",\"link_to\":\"Ebupot Document\"},{\"type\":\"Link\",\"label\":\"Tax Adjustment Entry\",\"link_type\":\"DocType\",\"link_to\":\"Tax Adjustment Entry\"}]},{\"type\":\"Card Break\",\"label\":\"Pelaporan\",\"icon\":\"reports\",\"hide_title\":false,\"links\":[{\"type\":\"Link\",\"label\":\"Tax Filing Summary\",\"link_type\":\"DocType\",\"link_to\":\"Tax Filing Summary\"},{\"type\":\"Link\",\"label\":\"Penyelesaian Pajak\",\"link_type\":\"DocType\",\"link_to\":\"Penyelesaian Pajak\"},{\"type\":\"Link\",\"label\":\"Pelaporan Pajak\",\"link_type\":\"Page\",\"link_to\":\"pelaporan-pajak\"}]},{\"type\":\"Card Break\",\"label\":\"Monitoring\",\"icon\":\"monitoring\",\"hide_title\":false,\"links\":[{\"type\":\"Link\",\"label\":\"Dashboard Pajak\",\"link_type\":\"Dashboard\",\"link_to\":\"Pajak Indonesia\"},{\"type\":\"Link\",\"label\":\"Tax Processing Status\",\"link_type\":\"Report\",\"is_query_report\":true,\"link_to\":\"Tax Processing Status\"},{\"type\":\"Link\",\"label\":\"PPN Summary\",\"link_type\":\"Report\",\"is_query_report\":true,\"link_to\":\"PPN Summary\"}]}],\"shortcuts\":[{\"type\":\"DocType\",\"link_to\":\"Efaktur Document\",\"label\":\"Efaktur Document\",\"color\":\"#a83333\",\"format\":\"{} Pending\",\"stats_filter\":\"{\\\"status\\\":[\\\"=\\\",\\\"Draft\\\"]}\"},{\"type\":\"DocType\",\"link_to\":\"Ebupot Document\",\"label\":\"Ebupot Document\",\"color\":\"#3366cc\",\"format\":\"{} Pending\",\"stats_filter\":\"{\\\"status\\\":[\\\"=\\\",\\\"Draft\\\"]}\"},{\"type\":\"DocType\",\"link_to\":\"Tax Filing Summary\",\"label\":\"Tax Filing Summary\",\"color\":\"#29a329\",\"format\":\"{} To File\",\"stats_filter\":\"{\\\"status_spt\\\":[\\\"is\\\",\\\"not set\\\"]}\"},{\"type\":\"DocType\",\"link_to\":\"Penyelesaian Pajak\",\"label\":\"Penyelesaian Pajak\",\"color\":\"#ffb100\",\"format\":\"{} To Pay\",\"stats_filter\":\"{\\\"workflow_state\\\":[\\\"=\\\",\\\"Pending Payment\\\"]}\"}],\"charts\":[{\"chart_name\":\"PPN Comparison\",\"width\":\"Full\"},{\"chart_name\":\"Monthly Tax Amounts\",\"width\":\"Half\"},{\"chart_name\":\"Filing Status\",\"width\":\"Half\"}]}",
+    "links": [
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Transaksi",
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Efaktur Document",
+            "link_to": "Efaktur Document",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Ebupot Document",
+            "link_to": "Ebupot Document",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Tax Adjustment Entry",
+            "link_to": "Tax Adjustment Entry",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Pelaporan",
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Tax Filing Summary",
+            "link_to": "Tax Filing Summary",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Penyelesaian Pajak",
+            "link_to": "Penyelesaian Pajak",
+            "link_type": "DocType",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Pelaporan Pajak",
+            "link_to": "pelaporan-pajak",
+            "link_type": "Page",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Monitoring",
+            "onboard": 0,
+            "type": "Card Break"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Dashboard Pajak",
+            "link_to": "Pajak Indonesia",
+            "link_type": "Dashboard",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "Tax Processing Status",
+            "link_to": "Tax Processing Status",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link"
+        },
+        {
+            "dependencies": "",
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "PPN Summary",
+            "link_to": "PPN Summary",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link"
+        }
+    ],
+    "modified": "2024-05-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Pajak Indonesia",
+    "name": "Pajak Indonesia",
+    "owner": "Administrator",
+    "parent_page": "Accounting",
+    "public": 1,
+    "quick_lists": [],
+    "restrict_to_domain": "",
+    "roles": [
+        {
+            "role": "Accounts Manager"
+        },
+        {
+            "role": "Accounts User"
+        },
+        {
+            "role": "Tax Manager"
+        }
+    ],
+    "sequence_id": 21,
+    "shortcuts": [
+        {
+            "color": "#a83333",
+            "format": "{} Pending",
+            "label": "Efaktur Document",
+            "link_to": "Efaktur Document",
+            "stats_filter": "{\"status\":[\"=\",\"Draft\"]}",
+            "type": "DocType"
+        },
+        {
+            "color": "#3366cc",
+            "format": "{} Pending",
+            "label": "Ebupot Document",
+            "link_to": "Ebupot Document",
+            "stats_filter": "{\"status\":[\"=\",\"Draft\"]}",
+            "type": "DocType"
+        },
+        {
+            "color": "#29a329",
+            "format": "{} To File",
+            "label": "Tax Filing Summary",
+            "link_to": "Tax Filing Summary",
+            "stats_filter": "{\"status_spt\":[\"is\",\"not set\"]}",
+            "type": "DocType"
+        },
+        {
+            "color": "#ffb100",
+            "format": "{} To Pay",
+            "label": "Penyelesaian Pajak",
+            "link_to": "Penyelesaian Pajak",
+            "stats_filter": "{\"workflow_state\":[\"=\",\"Pending Payment\"]}",
+            "type": "DocType"
+        }
+    ],
+    "charts": [
+        {
+            "chart_name": "PPN Comparison",
+            "width": "Full"
+        },
+        {
+            "chart_name": "Monthly Tax Amounts",
+            "width": "Half"
+        },
+        {
+            "chart_name": "Filing Status",
+            "width": "Half"
+        }
+    ],
+    "title": "Pajak Indonesia"
+}
